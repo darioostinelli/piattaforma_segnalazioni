@@ -1,12 +1,66 @@
 /***            VARIABILI           ***/
 :root{
     --main-dashboard-bg-color : #050099;
+    --main-dashboard-color : #ffffff;
+    --main-dashboard-bg-color-hover : #040088;
+    --font : Questrial;
+    --desktop-menu-logo-height: 60px;
+    --desktop-menu-logo-width: 200px;
+    --mobile-menu-logo-height: 80px;
 }
 /***        DEFAULT (Mobile)        ***/
-
+body{
+    font-family: var(--font);
+}
+#logo{
+    position: absolute;
+    top: 0;
+    height: var(--mobile-menu-logo-height);
+    left: 0;
+    right: 0;
+}
+#menuWrapper{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+}
+#navigationBar {
+    display: block;
+}
+.menuItem{
+    display: block;
+    background: var(--main-dashboard-bg-color);
+    color: var(--main-dashboard-color);
+    padding: 20px 30px;
+}
+.menuItem:hover{
+    background: var(--main-dashboard-bg-color-hover);
+}
 
 
 /***            DESKTOP         ***/
 @media only screen and (orientation: landscape) {
-
+    #menuWrapper{
+        position: absolute;
+        top: 0;
+        left: var(--desktop-menu-logo-width);
+        right: 0;
+    }
+    #navigationBar{
+        display: table;
+        width: 100%;
+    }
+    #logo{
+        position: absolute;
+        top: 0;
+        height: var(--desktop-menu-height);
+        left: 0;
+        width: var(--desktop-menu-logo-width);
+    }
+    .menuItem{
+        display: table-cell;
+        height: 40px;
+        padding-bottom: 0;
+    }
 }
