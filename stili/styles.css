@@ -7,60 +7,68 @@
     --desktop-menu-logo-height: 60px;
     --desktop-menu-logo-width: 200px;
     --mobile-menu-logo-height: 80px;
+    --main-bg: #ddf9ff;
 }
 /***        DEFAULT (Mobile)        ***/
 body{
     font-family: var(--font);
+    margin: 0;
+    padding: 0;
+    background: var(--main-bg);
 }
-#logo{
-    position: absolute;
-    top: 0;
-    height: var(--mobile-menu-logo-height);
-    left: 0;
-    right: 0;
-}
-#menuWrapper{
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-}
-#navigationBar {
-    display: block;
+.mainMenu{
+    position: relative;
+     background: var(--main-dashboard-bg-color);
 }
 .menuItem{
     display: block;
-    background: var(--main-dashboard-bg-color);
-    color: var(--main-dashboard-color);
     padding: 20px 30px;
+    color: var(--main-dashboard-color);
+    text-align: left;
+    
 }
 .menuItem:hover{
     background: var(--main-dashboard-bg-color-hover);
+}
+.newsWrapper{
+    padding: 30px;
+    display: block;
+}
+.news{
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px #888888;
+    background: white;
+    margin-top: 30px;
 }
 
 
 /***            DESKTOP         ***/
 @media only screen and (orientation: landscape) {
-    #menuWrapper{
-        position: absolute;
-        top: 0;
-        left: var(--desktop-menu-logo-width);
-        right: 0;
-    }
-    #navigationBar{
-        display: table;
+    .mainMenu{
+        display:  block;
+        table-layout: relative;
         width: 100%;
     }
-    #logo{
-        position: absolute;
-        top: 0;
-        height: var(--desktop-menu-height);
-        left: 0;
-        width: var(--desktop-menu-logo-width);
-    }
     .menuItem{
+        display: inline-block;
+    }
+    .login{
+        float: right;
+    }
+    .newsWrapper{
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        border-collapse:separate;
+        border-spacing: 50px;
+        padding: 0;
+    }
+    .news{
         display: table-cell;
-        height: 40px;
-        padding-bottom: 0;
+    }
+    
+    .inEvidenza{
+        width: 33.333%
     }
 }
