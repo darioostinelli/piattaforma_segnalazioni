@@ -26,7 +26,7 @@ function generaHtml(aNew){
     html += aNew.titolo;
     html += '</a>';
     html += '<span class="data">' + aNew.data + '</span><br>';
-    html += '<span class="autore">' + aNew.autore + '</span>'
+    html += '<span class="autore">' + aNew.autore + '</span>';
     html += '</div>';
     return html;
 }
