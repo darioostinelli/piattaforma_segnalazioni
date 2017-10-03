@@ -7,8 +7,8 @@ class Database{
     public $conn;
     public function getConnection(){
         $this->conn = null;
-        $conn = mysqli_connect($servername, $username, $password);
-        if (!$conn) {
+        $this->conn = mysqli_connect($this->host, $this->username, $this->password, $this->db_name);
+        if (!$this->conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
         return $this->conn;
