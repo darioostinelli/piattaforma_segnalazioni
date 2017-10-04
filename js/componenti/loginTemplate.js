@@ -26,6 +26,12 @@ function performLogin(user, pass){
     $.post('api/login/login.php',
            {login: jsonData},
            function(data){
-                
+                var decodedData = JSON.parse(data);
+                if(decodedData.status == "error")
+                    loginError(decodedData.error);
+                else if(decodedData.status == "success")
+                {
+                    //TODO: implementare lato server controllo dei permessi e ritorno di una variabile che indichi se reindirizzare alla home admin
+                }
             });
 }
