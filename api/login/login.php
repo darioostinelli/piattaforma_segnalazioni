@@ -1,5 +1,7 @@
 <?php
     include_once '../../util/connessioneDB.php';
+    include_once '../../util/getPermessi.php';
+    include_once '../../util/setPermessi.php';
     session_start();
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
         header('Location /index.html');
@@ -25,7 +27,9 @@
         else{
             $obj = $result->fetch_object();
             if($obj->pass == $pass){
-                 echo '{"status":"success"}';
+                $permessi = leggiPermessi($obj);
+                gestisciPermessi($permessi);
+                echo '{"status":"success"}';
             }
             else{
                  echo '{"status":"error","error":"password errata"}';
@@ -33,4 +37,16 @@
         }
         $conn->close();
     }
+    function leggiPermessi($obj){
+        $permissionReader = new LeggiPermessi();
+        return $permissionReader->leggi($obj->id); // == false ----> nessun permesso per l'utente
+    }
+    function gestisciPermessi($permessi){
+          $permissionReader = new LeggiPermessi();
+          $permissionWriter = new ScriviPermessi();
+          echo $permissionReader->controllaPermesso($permessi, $permissionWriter->segnalazioni('scrivi'));
+    }
 ?>
+
+
+
