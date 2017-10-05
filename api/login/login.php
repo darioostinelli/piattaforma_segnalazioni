@@ -29,7 +29,7 @@
             if($obj->pass == $pass){
                 $permessi = leggiPermessi($obj);
                 gestisciPermessi($permessi);
-                echo '{"status":"success"}';
+                
             }
             else{
                  echo '{"status":"error","error":"password errata"}';
@@ -44,7 +44,12 @@
     function gestisciPermessi($permessi){
           $permissionReader = new LeggiPermessi();
           $permissionWriter = new ScriviPermessi();
-          echo $permissionReader->controllaPermesso($permessi, $permissionWriter->segnalazioni('scrivi'));
+          if($permissionReader->controllaPermesso($permessi, $permissionWriter->segnalazioni('scrivi'))){
+                echo '{"status":"success","user":"admin"}';
+          }
+          else{
+                echo '{"status":"success","user":"user"}';
+        }
     }
 ?>
 
