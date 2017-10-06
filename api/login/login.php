@@ -28,7 +28,10 @@
             $obj = $result->fetch_object();
             if($obj->pass == $pass){
                 $permessi = leggiPermessi($obj);
-                gestisciPermessi($permessi);
+                if($permessi)
+                    gestisciPermessi($permessi);
+                else
+                    echo '{"status":"success","user":"user"}';
                 $_SESSION['user'] = $obj;
                 $_SESSION['permessi'] = $permessi;
             }
