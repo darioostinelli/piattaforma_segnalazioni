@@ -24,17 +24,18 @@
 <div class="newContainer">
 	<div class="newHead">
 		<h1><?php echo $new->titolo ?></h1>
-		<p></p><span>Autore: <?php echo $new->user_name ?></span><span class="data"><?php echo $new->data ?></span></p>
+		<p></p><span><?php echo $new->user_name ?></span><span class="data"><?php echo $new->data ?></span></p>
 	</div>
 	<div class="testo">
 		<?php echo $testo ?>
 	</div>
 	
 </div>
-<div class="footer">
-		
-</div>
-
+<?php
+if($new){
+	echo '<div class="footer"></div>';
+	}
+?>
 </body>
 </html>
 
