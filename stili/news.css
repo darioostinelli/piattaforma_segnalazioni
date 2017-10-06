@@ -1,0 +1,22 @@
+
+.newContainer{
+    background: white;
+    line-height: 200%;
+    padding: 50px;
+}
+.newHead .data{
+    float: right;
+}
+.footer{
+    height: -webkit-fill-available;
+    max-height: 100px;
+    background: silver;
+}
+/***        DESKTOP         ***/
+@media only screen and (orientation: landscape) {
+    .newContainer{
+        width: 60%;
+        margin: auto;
+    }
+   
+}

@@ -20,7 +20,7 @@ function displayNews(aNew){
 }
 
 function generaHtml(aNew){
-    var html = '<div class="aNew"><a href="displayNews.html?new=';
+    var html = '<div class="aNew"><a href="displayNews.php?new=';
     html += aNew.id;
     html += '">';
     html += aNew.titolo;
