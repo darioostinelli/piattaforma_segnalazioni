@@ -13,5 +13,8 @@ class Database{
         }
         return $this->conn;
     }
+    public function closeConnection(){
+        $this->conn->close();
+    }
 }
 ?>

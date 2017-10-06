@@ -7,21 +7,32 @@
     <script src="js/librerie/jquery.js"></script>
     <script src="js/librerie/lodash.js"></script>
     <script src="js/componenti/newsTemplate.js"></script>
+    <script src="js/componenti/loginTemplate.js"></script>
      <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 </head>
 
 <body>
-
-<div class="mainMenu">
-        <div class="menuItem">Segnalazioni</div>
-        <div class="menuItem login">Login</div>
-</div>
-<div class="newsWrapper">
-    <div class="news inEvidenza" id="evidenza">
-        <h1>In evidenza</h1>
+<div id="pageBody">
+    <div class="mainMenu">
+            <div class="menuItem">Segnala</div>
+            <div class="menuItem login" onclick="toggleLogin();">Login</div>
     </div>
-    <div class="news" id="news">
-        <h1>News</h1>
+    <div class="newsWrapper">
+        <div class="news inEvidenza" id="evidenza">
+            <h1>In evidenza</h1>
+        </div>
+        <div class="news" id="news">
+            <h1>News</h1>
+        </div>
+    </div>
+</div>
+<div id="login">
+    <div class="loginFormContainer">
+        <h1>Login</h1>
+        <input id="username" type="text" placeholder="Username..."/>
+        <input id="password" type="password" placeholder="Password"/>
+        <button onclick="login();">Login</button><br>
+        <a class="loginNav" onclick="toggleLogin();">Back</a><span id="loginInfo" style="margin-left: 30px"></span>
     </div>
 </div>
 </body>

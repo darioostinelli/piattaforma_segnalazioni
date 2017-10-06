@@ -51,6 +51,44 @@ body{
     font-size: 12px;
 }
 
+#login{
+    display: none;
+}
+
+.loginFormContainer{
+    background: #0066ff;
+    color: white;
+    margin: 30px;
+    padding: 30px;
+}
+.loginFormContainer input{
+    width: 100%;
+    height: 65px;
+    background: white;
+    border: 2px solid silver;
+    margin-bottom: 20px;
+}
+.loginFormContainer button{
+    background: #050099;
+    color: white;
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    border: none;
+}
+.loginFormContainer button:hover{
+     background: #040088;
+}
+a.loginNav{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+a.loginNav:hover{
+    text-decoration: underline;
+    transition-duration: 0.1s;
+}
+
 /***            DESKTOP         ***/
 @media only screen and (orientation: landscape) {
     .mainMenu{
@@ -78,5 +116,19 @@ body{
     
     .inEvidenza{
         width: 40%
+    }
+    .loginFormContainer{
+        display: inline-block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 350px;
+        margin: auto;
+        height: fit-content;
+    }
+    .loginFormContainer input{
+       height: 35px;
     }
 }
