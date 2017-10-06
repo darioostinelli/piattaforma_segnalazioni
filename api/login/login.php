@@ -29,7 +29,8 @@
             if($obj->pass == $pass){
                 $permessi = leggiPermessi($obj);
                 gestisciPermessi($permessi);
-                
+                $_SESSION['user'] = $obj;
+                $_SESSION['permessi'] = $permessi;
             }
             else{
                  echo '{"status":"error","error":"password errata"}';

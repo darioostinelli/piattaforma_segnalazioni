@@ -31,7 +31,8 @@ function performLogin(user, pass){
                     loginError(decodedData.error);
                 else if(decodedData.status == "success")
                 {
-                    //TODO: implementare lato server controllo dei permessi e ritorno di una variabile che indichi se reindirizzare alla home admin
+                    if(decodedData.user == "admin")
+                        window.location.href = "adminHome.php";
                 }
             });
 }
