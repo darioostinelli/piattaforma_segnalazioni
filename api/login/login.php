@@ -48,8 +48,11 @@
     function gestisciPermessi($permessi){
           $permissionReader = new LeggiPermessi();
           $permissionWriter = new ScriviPermessi();
-          if($permissionReader->controllaPermesso($permessi, $permissionWriter->segnalazioni('scrivi'))){
+          if($permissionReader->controllaPermesso($permessi, $permissionWriter->segnalazioni('leggi'))){
                 echo '{"status":"success","user":"admin"}';
+          }
+          else if($permissionReader->controllaPermesso($permessi, $permissionWriter->news('scrivi'))){
+                 echo '{"status":"success","user":"admin"}';
           }
           else{
                 echo '{"status":"success","user":"user"}';

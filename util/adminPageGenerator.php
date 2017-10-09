@@ -11,10 +11,14 @@ class AdminPage{
         $this->permissionWriter = new ScriviPermessi();
     }
     public function generaMenu(){
-        if($this->permissionReader->controllaPermesso($this->permessi, $this->permissionWriter->segnalazioni('scrivi'))){
+        if($this->permissionReader->controllaPermesso($this->permessi, $this->permissionWriter->segnalazioni('leggi'))){
             echo '<div class="menuItem">Segnalazioni</div>';
         }
         echo '<div class="menuItem login" onclick="logout();">Logout</div>';
+        
+        if($this->permissionReader->controllaPermesso($this->permessi, $this->permissionWriter->news('scrivi'))){
+            echo '<div class="menuItem">Pubblica Notizia</div>';
+        }
     }
     
 }
