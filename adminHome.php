@@ -21,7 +21,7 @@
 	$permessi = $_SESSION['permessi'];
 	$permissionReader = new LeggiPermessi();
 	$permissionWriter = new ScriviPermessi();
-	if(!$permissionReader->controllaPermesso($permessi, $permissionWriter->segnalazioni('leggi'))){
+	if(!$permissionReader->controllaPermesso($permessi, $permissionWriter->segnalazioni('leggi')) || !$permissionReader->controllaPermesso($permessi, $permissionWriter->news('scrivi'))){
 		header("Location: index.html");
 	}
 	$pageGenerator = new AdminPage($permessi);
