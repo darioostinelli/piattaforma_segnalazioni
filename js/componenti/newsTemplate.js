@@ -1,21 +1,34 @@
-var news = [{id : 1, evidenza : true, data : '18-10-2017', autore : 'admin', titolo : 'Titolo placeholder 1'},
-            {id : 2, evidenza : false, data : '19-10-2017', autore : 'admin', titolo : 'Titolo placeholder 2'},
-            {id : 3, evidenza : false, data : '17-10-2017', autore : 'admin', titolo : 'Titolo placeholder 3'},
-            {id : 4, evidenza : false, data : '15-10-2017', autore : 'admin', titolo : 'Titolo placeholder 4'}];
-//[{id, titolo, evidenza, data, autore}]
 $().ready(function(){
+    getNews();
+});
+function getNews(){
+    $.get('api/news/leggi.php',
+          {news : true},
+          function(data){
+                decodedData = JSON.parse(data);
+                if(decodedData.status == "error"){
+                    
+                }
+                else{
+                    displayAllNews(decodedData);
+                }
+            });
+}
+
+function displayAllNews(news){
+    cancellaCaricamento();
     for(i = 0; i < news.length; i++){
         displayNews(news[i]);
     }
-});
-
+    gestisciNessunaNew();
+}
 function displayNews(aNew){
     var html = generaHtml(aNew);
-    if(aNew.evidenza){
-        $('#evidenza').append(html);
+    if(aNew.evidenza == 1){
+        $('#evidenza  .newContainer').append(html);
     }
     else{
-        $('#news').append(html);
+        $('#news  .newContainer').append(html);
     }
 }
 
@@ -26,7 +39,21 @@ function generaHtml(aNew){
     html += aNew.titolo;
     html += '</a>';
     html += '<span class="data">' + aNew.data + '</span><br>';
-    html += '<span class="autore">' + aNew.autore + '</span>';
+    html += '<span class="autore">' + aNew.user_name + '</span>';
     html += '</div>';
     return html;
+}
+
+function cancellaCaricamento(){
+    $('#evidenza .newContainer').text('');
+    $('#news  .newContainer').text('');
+}
+
+function gestisciNessunaNew(){
+    if($('#evidenza  .newContainer').text() === ''){
+        $('#evidenza  .newContainer').text('Nessuna notizia disponibile');
+    }
+    if($('#news  .newContainer').text() === ''){
+        $('#news  .newContainer').text('Nessuna notizia disponibile');
+    }
 }
