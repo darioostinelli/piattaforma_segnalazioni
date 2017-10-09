@@ -12,6 +12,27 @@
     max-height: 100px;
     background: silver;
 }
+.newsFormWrapper{
+    margin: 30px;
+}
+.textAreaContainer textarea{
+    width: 100%;
+    resize: none;
+    height: 70%;
+    padding: 20px;
+}
+.toolContainer{
+    background: white;
+    padding: 20px;
+}
+.toolGroup{
+    width: auto;
+    display: inline-block;
+}
+.btnFormattazione{
+    background: white;
+    border: 1px solid black;
+}
 /***        DESKTOP         ***/
 @media only screen and (orientation: landscape) {
     .newContainer{
