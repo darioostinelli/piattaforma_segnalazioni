@@ -21,6 +21,9 @@ function italic(){
 function underline(){
     appendTag('u');
 }
+function titolo(tipo){
+    appendTag('h'+tipo);
+}
 function appendTag(tag){
     var textarea = $('.textAreaContainer textarea');
     var htmlTag = '<' + tag + '></' + tag + '>';

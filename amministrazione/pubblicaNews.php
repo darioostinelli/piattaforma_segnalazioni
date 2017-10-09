@@ -33,9 +33,14 @@
         <div class="toolContainer">
             <input type="checkbox" value="evidenza" id="evidenza"><label for="evidenza">In evidenza</label>
             <div class="toolGroup">
-                <button class="btnFormattazione" onclick="bold();"><b>G</b></button>
-                <button class="btnFormattazione" onclick="italic();"><i>I</i></button>
-                <button class="btnFormattazione" onclick="underline();"><u>S</u></button>
+                <button class="btnFormattazione" title="grassetto"onclick="bold();"><b>G</b></button>
+                <button class="btnFormattazione" title="corsivo" onclick="italic();"><i>I</i></button>
+                <button class="btnFormattazione" title="sottolineato" onclick="underline();"><u>S</u></button>
+            </div>
+             <div class="toolGroup">
+                <button class="btnFormattazione" title="sottotitolo"onclick="titolo(1);"><b>h1</b></button>
+                <button class="btnFormattazione" title="sottotitolo"onclick="titolo(2);"><b>h2</b></button>
+                <button class="btnFormattazione" title="sottotitolo"onclick="titolo(3);"><b>h3</b></button>
             </div>
         </div>
         <div class="textAreaContainer">
