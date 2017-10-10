@@ -42,12 +42,19 @@
                 <button class="btnFormattazione" title="sottotitolo"onclick="titolo(2);"><b>h2</b></button>
                 <button class="btnFormattazione" title="sottotitolo"onclick="titolo(3);"><b>h3</b></button>
             </div>
+			<div class="toolGroup">
+				<button id="btnPreview" class="btnFormattazione" title="Preview" onclick="preview();"><b>Preview</b></button>
+			</div>
         </div>
         <div class="textAreaContainer">
+			<input type="text" class="newTitle" id="title" placeholder="Inserire titolo... "/>
             <textarea>
                 
             </textarea>
         </div>
+		<div id="preview">
+			
+		</div>
     </div>
 </div>
 </body>

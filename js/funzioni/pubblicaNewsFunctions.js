@@ -8,6 +8,11 @@ function logout(){
 
 $().ready(function(){
     $('textarea').text('');
+    $('.textAreaContainer textarea').keyup(function(event){
+		if(event.keyCode == 13){
+        	appendBr();
+		}
+	});
 });
 
 function bold(){
@@ -34,6 +39,26 @@ function appendTag(tag){
     textarea.selectRange(textarea.val().length - (3 + tag.length));
 }
 
+function appendBr(){
+    var textarea = $('.textAreaContainer textarea');
+    textarea.focus();
+    textarea.val(function(){
+        return textarea.val() + '<br>';
+    });
+}
+function preview(){
+    if($('#btnPreview').text() == "Preview"){
+        $('#btnPreview').text('Editor');
+    }
+    else{
+         $('#btnPreview').text('Preview');
+    }
+    $('.textAreaContainer').toggle();
+    $('#preview').toggle();
+    var prev = '<h1>' + $('#title').val() + '</h1>';
+    prev += $('.textAreaContainer textarea').val();
+    $('#preview').html(prev);
+}
 $.fn.selectRange = function(start, end) {
     if(end === undefined) {
         end = start;
