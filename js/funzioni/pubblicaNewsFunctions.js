@@ -103,7 +103,15 @@ function sendNew(){
         "../api/news/scrivi.php",
         {notizia : JSON.stringify(obj)},
         function(data){
-            console.log(data);
+            var decoded = JSON.parse(data);
+            if(decoded.status == "error"){
+                alert("Impossibile salvare la notizia");
+            }
+            else{
+                alert("Notizia salvata con successo");
+                $('#title').val("");
+                $('textarea').val("");
+            }
         });
 }
 

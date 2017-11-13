@@ -34,6 +34,6 @@
 		echo "non riesco a scrivere";
 	}
 	fclose($myfile);
-    echo $file;
+    echo '{"status":"success"}';
     
 ?>
