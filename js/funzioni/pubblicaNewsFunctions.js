@@ -13,6 +13,10 @@ $().ready(function(){
         	appendBr();
 		}
 	});
+    $('#title , textarea').focus(function(){
+        $('#title , textarea').css("border","1px solid grey");
+    });
+    
 });
 
 function bold(){
@@ -78,3 +82,29 @@ $.fn.selectRange = function(start, end) {
         }
     });
 };
+
+
+function pubblica(){
+    if($('#title').val() == ""){
+        $('#title').css("border","2px solid red");
+        return;
+    }
+    if($('.textAreaContainer textarea').val() == ""){
+        $('.textAreaContainer textarea').css("border","2px solid red");
+        return;
+    }
+    sendNew();
+}
+
+function sendNew(){
+    var evidenza = $("#evidenza").is(':checked') ? 1 : 0;
+    var obj = {titolo: $('#title').val(), testo : $('textarea').val(), evidenza : evidenza};
+    $.post(
+        "../api/news/scrivi.php",
+        {notizia : JSON.stringify(obj)},
+        function(data){
+            console.log(data);
+        });
+}
+
+

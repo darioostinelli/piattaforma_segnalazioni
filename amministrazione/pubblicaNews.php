@@ -44,6 +44,7 @@
             </div>
 			<div class="toolGroup">
 				<button id="btnPreview" class="btnFormattazione" title="Preview" onclick="preview();"><b>Preview</b></button>
+				<button id="btnPubblica" class="btnFormattazione" title="Pubblica Notizia" onclick="pubblica();"><b>Pubblica</b></button>
 			</div>
         </div>
         <div class="textAreaContainer">
